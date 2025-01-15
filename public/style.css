@@ -1,0 +1,75 @@
+body {
+    background-color: #eee;
+    text-align: center;
+}
+
+#calculation_request {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+    width: 500px;
+    margin: 0 auto;
+}
+
+#calculation_request > div {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 50px;
+    align-self: flex-end;
+}
+
+#calculation_request > div:last-child {
+    flex: 0 0 auto;
+    min-width: auto;
+}
+
+label {
+    margin-bottom: 4px;
+    font-weight: bold;
+}
+
+input, select, button {
+    padding: 8px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Error messages */
+#calculation_request ul {
+    margin: 4px 0 0;
+    padding: 0;
+    list-style: none;
+    color: #D9534F;
+    font-size: 0.875rem;
+}
+
+#calculation_request li {
+    margin: 0;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    #calculation_request {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #calculation_request > div {
+        flex: 1 1 100%;
+    }
+}
