@@ -1,6 +1,9 @@
 # Calculator
 A demo symfony project.
 
+[![PHP-CS-Fixer](https://github.com/ChrisAnstey/calculator/actions/workflows/cs.yml/badge.svg)](https://github.com/ChrisAnstey/calculator/actions/workflows/cs.yml) [![PHPUnit](https://github.com/ChrisAnstey/calculator/actions/workflows/phpunit.yml/badge.svg)](https://github.com/ChrisAnstey/calculator/actions/workflows/phpunit.yml) [![PHPStan](https://github.com/ChrisAnstey/calculator/actions/workflows/phpstan.yml/badge.svg)](https://github.com/ChrisAnstey/calculator/actions/workflows/phpstan.yml)
+
+
 ## Development
 #### Installation
 To install the project dependencies, run:
