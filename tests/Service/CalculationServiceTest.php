@@ -25,6 +25,7 @@ class CalculationServiceTest extends TestCase
         $this->assertEquals($expected, $result);
     }
 
+    /** @return array<string, array{float, float, string, float|string}> */
     public function calculationProvider(): array
     {
         return [
