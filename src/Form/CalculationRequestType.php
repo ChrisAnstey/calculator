@@ -26,8 +26,8 @@ class CalculationRequestType extends AbstractType
             ->add('operation', ChoiceType::class, [
                 'label' => false,
                 'choices' => array_combine(
-                    array_map(fn(Operation $op) => ucfirst($op->value), Operation::cases()),
-                    array_map(fn(Operation $op) => $op->value, Operation::cases())
+                    array_map(fn (Operation $op) => ucfirst($op->value), Operation::cases()),
+                    array_map(fn (Operation $op) => $op->value, Operation::cases())
                 ),
                 'required' => true,
                 'constraints' => new NotBlank(),

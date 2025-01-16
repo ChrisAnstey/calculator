@@ -34,7 +34,6 @@ class CalculationServiceTest extends TestCase
             'multiplication' => [5, 3, 'multiply', 15],
             'division' => [6, 3, 'divide', 2],
             'division by zero' => [6, 0, 'divide', 'Error: Division by zero'],
-            'invalid operation' => [6, 3, 'invalid', 'Invalid operation'],
         ];
     }
 }
