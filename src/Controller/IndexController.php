@@ -6,6 +6,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Attribute\Route;
 use App\Dto\CalculationRequest;
+use App\Enum\Operation;
 use App\Form\CalculationRequestType;
 use App\Service\CalculationService;
 
@@ -21,7 +22,7 @@ class IndexController extends AbstractController
     #[Route('/')]
     public function index(Request $request): Response
     {
-        $calculationRequest = new CalculationRequest(0, 0, 'add');
+        $calculationRequest = new CalculationRequest(0, 0, Operation::ADD->value);
         $form = $this->createForm(CalculationRequestType::class, $calculationRequest);
 
         $form->handleRequest($request);

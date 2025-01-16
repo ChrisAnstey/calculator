@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use App\Enum\Operation;
 
 /**
  * @extends AbstractType<CalculationRequest>
@@ -24,12 +25,10 @@ class CalculationRequestType extends AbstractType
             ])
             ->add('operation', ChoiceType::class, [
                 'label' => false,
-                'choices' => [
-                    'Add' => 'add',
-                    'Subtract' => 'subtract',
-                    'Multiply' => 'multiply',
-                    'Divide' => 'divide',
-                ],
+                'choices' => array_combine(
+                    array_map(fn(Operation $op) => ucfirst($op->value), Operation::cases()),
+                    array_map(fn(Operation $op) => $op->value, Operation::cases())
+                ),
                 'required' => true,
                 'constraints' => new NotBlank(),
             ])

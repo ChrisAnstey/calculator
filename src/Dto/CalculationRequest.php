@@ -1,27 +1,10 @@
 <?php
 namespace App\Dto;
 
-use Symfony\Component\Validator\Constraints as Assert;
-
 class CalculationRequest
 {
-    #[Assert\NotNull(message: 'Operand 1 cannot be null.')]
-    #[Assert\Type(type: 'numeric', message: 'Operand 1 must be a number.')]
-    private mixed $operand1;
-
-    #[Assert\NotNull(message: 'Operand 2 cannot be null.')]
-    #[Assert\Type(type: 'numeric', message: 'Operand 2 must be a number.')]
-    private mixed $operand2;
-
-    #[Assert\NotNull(message: 'Operation cannot be null.')]
-    #[Assert\Choice(choices: ['add', 'subtract', 'multiply', 'divide'], message: 'Invalid operation.')]
-    private ?string $operation;
-
-    public function __construct(mixed $operand1, mixed $operand2, ?string $operation)
+    public function __construct(private float $operand1, private float $operand2, private string $operation)
     {
-        $this->operand1 = $operand1;
-        $this->operand2 = $operand2;
-        $this->operation = $operation;
     }
 
     public function getOperand1(): mixed

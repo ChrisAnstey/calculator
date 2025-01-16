@@ -2,6 +2,7 @@
 namespace App\Service;
 
 use App\Dto\CalculationRequest;
+use App\Enum\Operation;
 
 class CalculationService
 {
@@ -9,14 +10,13 @@ class CalculationService
     {
         $operand1 = $request->getOperand1();
         $operand2 = $request->getOperand2();
-        $operation = $request->getOperation();
+        $operation = Operation::from($request->getOperation());
 
         return match ($operation) {
-            'add' => $operand1 + $operand2,
-            'subtract' => $operand1 - $operand2,
-            'multiply' => $operand1 * $operand2,
-            'divide' => $operand2 != 0 ? $operand1 / $operand2 : 'Error: Division by zero',
-            default => 'Invalid operation',
+            Operation::ADD => $operand1 + $operand2,
+            Operation::SUBTRACT => $operand1 - $operand2,
+            Operation::MULTIPLY => $operand1 * $operand2,
+            Operation::DIVIDE => $operand2 != 0 ? $operand1 / $operand2 : 'Error: Division by zero',
         };
     }
 }
