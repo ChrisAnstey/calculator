@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Form;
@@ -22,20 +23,20 @@ class CalculationRequestType extends AbstractType
     {
         $builder
             ->add('operand1', NumberType::class, [
-                'label' => false,
+                'label'    => false,
                 'required' => true,
             ])
             ->add('operation', ChoiceType::class, [
-                'label' => false,
+                'label'   => false,
                 'choices' => array_combine(
                     array_map(fn (Operation $op) => ucfirst($op->value), Operation::cases()),
                     array_map(fn (Operation $op) => $op->value, Operation::cases())
                 ),
-                'required' => true,
+                'required'    => true,
                 'constraints' => new NotBlank(),
             ])
             ->add('operand2', NumberType::class, [
-                'label' => false,
+                'label'    => false,
                 'required' => true,
             ])
             ->add('calculate', SubmitType::class);
@@ -46,8 +47,8 @@ class CalculationRequestType extends AbstractType
         $resolver->setDefaults([
             'csrf_protection' => true,
             'csrf_field_name' => '_token',
-            'csrf_token_id' => 'calculation_request',
-            'data_class' => CalculationRequest::class,
+            'csrf_token_id'   => 'calculation_request',
+            'data_class'      => CalculationRequest::class,
         ]);
     }
 }

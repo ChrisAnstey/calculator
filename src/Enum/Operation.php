@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Enum;
@@ -8,8 +9,8 @@ namespace App\Enum;
  */
 enum Operation: string
 {
-    case ADD = 'add';
+    case ADD      = 'add';
     case SUBTRACT = 'subtract';
     case MULTIPLY = 'multiply';
-    case DIVIDE = 'divide';
+    case DIVIDE   = 'divide';
 }

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Controller;
@@ -25,7 +26,7 @@ class IndexController extends AbstractController
     public function index(Request $request): Response
     {
         $calculationRequest = new CalculationRequest(0, 0, Operation::ADD->value);
-        $form = $this->createForm(CalculationRequestType::class, $calculationRequest);
+        $form               = $this->createForm(CalculationRequestType::class, $calculationRequest);
 
         $form->handleRequest($request);
 
@@ -34,7 +35,7 @@ class IndexController extends AbstractController
         }
 
         return $this->render('index.html.twig', [
-            'form' => $form->createView(),
+            'form'   => $form->createView(),
             'result' => $result ?? null,
         ]);
     }
